@@ -1,29 +1,19 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page d'accueil</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Redirecting...</title>
+    <script>
+        // Check the user's preferred language from localStorage or use the default
+        const preferredLang = localStorage.getItem("preferredLang") || "fr";
+
+        // Redirect to the appropriate language folder
+        const currentPage = "index.html"; // Change to another page if necessary
+        window.location.href = `./${preferredLang}/${currentPage}`;
+    </script>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="contact.html">Contacts</a>
-            <a href="cards.html">Cards</a>
-            <span class="lang-switch">
-                <a href="en/index.html">EN</a> | <a href="index.html">FR</a>
-            </span>
-        </nav>
-    </header>
-    <main>
-        <h1>Bienvenue sur le site français</h1>
-        <p>Ceci est la page d'accueil en français. Bonne visite !</p>
-    </main>
-    <footer>
-        <p>Pied de page du site français</p>
-    </footer>
-    <script src="script.js"></script>
+    <p>Redirecting...</p>
 </body>
 </html>
