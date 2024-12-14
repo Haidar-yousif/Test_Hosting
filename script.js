@@ -22,14 +22,15 @@ document.addEventListener("DOMContentLoaded", () => {
         if (preferredLang === 'en' && !isOnEnglishPage) {
             // Redirect to the English version
             const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            window.location.href = `/en/${currentPage}`;
+            window.location.href = `../en/${currentPage}`;
         } else if (preferredLang === 'fr' && isOnEnglishPage) {
             // Redirect to the French version (default structure)
             const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            window.location.href = `/${currentPage}`;
+            window.location.href = `../fr/${currentPage}`;
         }
     }
 });
+
 //handling the burgle click
 document.addEventListener('DOMContentLoaded', () => {
     const burger = document.getElementById('burger');
