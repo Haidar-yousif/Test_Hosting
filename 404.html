@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Get the current path
+            const path = window.location.pathname;
+
+            // Check if the request is for a specific language folder (en/fr)
+            if (path.startsWith("/en/") || path.startsWith("/fr/")) {
+                // Redirect to the corresponding .html file
+                const correctedPath = path.endsWith("/")
+                    ? path + "index.html"
+                    : path + ".html";
+                window.location.replace(correctedPath);
+            } else {
+                // Redirect to the default homepage (index.html)
+                window.location.replace("/index.html");
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Redirecting...</h1>
+</body>
+</html>
