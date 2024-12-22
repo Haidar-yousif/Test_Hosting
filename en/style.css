@@ -73,9 +73,9 @@ header {
 header .row{
    width: 100%;
    
-   
+   flex-wrap: wrap;
    display: flex;
-
+   
    justify-content: space-between;
 }
 
@@ -218,7 +218,7 @@ header.shrink li.lang-switch a.no_click {
         display: flex;
         cursor: pointer;
         flex-direction: column;
-      
+      margin-left: auto;
         justify-content: flex-end;
     }
     .burger .line {
@@ -358,7 +358,7 @@ padding: 15px 0;
 .texts .links-list a {
     display: block;
     margin: 7px 0;
-    width: max-content;
+    
     padding: 5px;
     padding-left: 10px;
     border-left: 1px solid var(--primary-text-color);
@@ -408,7 +408,7 @@ padding: 15px 0;
 .texts-item-page .text p a{
     color: black;
     text-decoration: underline;
-    
+    width: min-content;
 }
 .texts-item-page .text p a:hover{
     color: var(--main-color);
@@ -581,17 +581,18 @@ max-height: 200px;
 /* ######### footer ###########*/
 footer {
     margin: 80px 0 0 0;
-    padding: 50px;
+    padding-top: 40px;
     background-color: #1a1a1a;
     color: #fff;
 }
+
 footer .logo {
     position: relative;
-    width: max-content;
+
 }
 
   footer  .logo a{
-    width: 100%;
+ 
     font-size: 1.4rem;
     color: #ccc;
     margin: 0;
@@ -620,7 +621,7 @@ footer .row{
     font-size: 0.9em;
     color: #ccc;
   }
-  .footer-bottom p {
+  .footer-bottom  {
     margin-top: 20px;
     font-size: 0.8em;
     color: #777;
@@ -628,9 +629,11 @@ footer .row{
   .footer-bottom a {
     color: var(--main-color);
   }
+
 @media screen and (max-width:880px){
+  
     footer .row{
-    
+        margin: auto;
         flex-direction: column;
         flex-wrap: wrap;
     }
@@ -639,10 +642,14 @@ footer .row{
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-    footer .row .col{
         flex: 1 1 calc(50% - 10px);
     }
+   
     
 } 
+@media screen and (max-width:440px){
+    footer  .logo a{
+        font-size: ;
+    }   
+}
  
