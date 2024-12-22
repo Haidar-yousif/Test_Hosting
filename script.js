@@ -1,3 +1,5 @@
+//##############################################################################################################################################
+//##############################################################################################################################################
 //update path based on the language
 document.addEventListener("DOMContentLoaded", () => {
     const langSwitchLinks = document.querySelectorAll(".lang-switch a");
@@ -30,8 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
-
+//##############################################################################################################################################
+//##############################################################################################################################################
 //handling the burgle click
+
 document.addEventListener('DOMContentLoaded', () => {
     const burger = document.getElementById('burger');
     const navLinks = document.querySelector('.nav');
@@ -43,7 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
         page.classList.toggle('hide-body-content');
     });
 });
+//##############################################################################################################################################
+//##############################################################################################################################################
 // header scroll animation
+
 document.addEventListener("DOMContentLoaded", () => {
     const header = document.querySelector(".header");
      
@@ -57,21 +64,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//##############################################################################################################################################
+//##############################################################################################################################################
 //handling missing contact form input 
+
 document.addEventListener("DOMContentLoaded",()=>{
 const nameInput=document.getElementById("nom");
 const emailInput =document.getElementById("destinataire");
@@ -166,3 +162,30 @@ document.getElementById("send_mail").addEventListener("click", (e) => {
     }
 });
 });
+
+//##############################################################################################################################################
+//##############################################################################################################################################
+// artwork section image handling
+document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('.artwork .img_container');
+    
+    const body = document.body;
+  
+    images.forEach(imagec => {
+      imagec.addEventListener('click', () => {
+        const fullscreenDiv = document.createElement('div');
+        fullscreenDiv.classList.add('fullscreen');
+  
+        const fullscreenImage = document.createElement('img');
+        fullscreenImage.src = imagec.children[0].src;
+        fullscreenDiv.appendChild(fullscreenImage);
+        body.appendChild(fullscreenDiv);
+  
+        // Close fullscreen on click
+        fullscreenDiv.addEventListener('click', () => {
+          fullscreenDiv.remove();
+        });
+      });
+    });
+  });
+  
