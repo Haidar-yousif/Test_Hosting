@@ -308,3 +308,6 @@ document.addEventListener("touchmove", dragTouchImage); // Drag image on touch m
 
 // Disable right-click context menu
 document.addEventListener("contextmenu", (e) => e.preventDefault(), false);
+
+//###################################################################################################################
+//###################################################################################################################

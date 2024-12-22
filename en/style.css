@@ -169,6 +169,24 @@ header.shrink li.lang-switch a.no_click {
 .burger {
     display: none;
 }
+/*under menu mobile section*/
+.nav-links .under_menu_mobile{
+    display: none;
+}
+.nav-links .under_menu_mobile *{
+padding: 0 !important;
+margin: 0 !important;
+}
+.nav-links .under_menu_mobile .navbar_inner ul {
+margin-left:40px !important;
+display: block ;
+}
+
+.nav-links .under_menu_mobile .navbar_inner ul li a {
+    padding: 1px !important;
+    margin: 0;
+    font-size: 18px;
+}
 
 
 /* Media Query for Small Screens */
@@ -179,20 +197,21 @@ header.shrink li.lang-switch a.no_click {
     
     header  .logo a{
         font-size: 23px;
-        padding: 20px 0 0 0;
+        padding: 18px 0 0 0;
     }
    .nav ul {
     display: none;
    }
     .nav.show {
         position: absolute;
-        top: 80px;
+        top: 50px;
         left: 0;
         right: 0;
         width: 100%;
         background-color:var(--header-color);
         transition: 0.2s;
-        height: 450px;
+        height: calc(100vh - 80px);
+        overflow-y: scroll;
         z-index: 100;
     }
     .nav.show ul{
@@ -213,16 +232,21 @@ header.shrink li.lang-switch a.no_click {
         }
     }
     .nav.show ul li {
-        margin: 10px;
+        margin: 0px;
         height: 100%;
     }
     .nav-links a{
-        padding: 20px 0 0 0 ;
+        padding: 16px 0 0 10px ;
+        font-size: 28px;
     }
     .nav-links li.lang-switch a{
+        font-size: 24px !important;
         padding: 20px 0 0 0 !important;
     }
-
+/*under menu mobile section*/
+.nav.show .under_menu_mobile {
+    display: block;
+}
     .burger {
         display: flex;
         cursor: pointer;
@@ -584,11 +608,169 @@ max-height: 300px;
     cursor: pointer;
   }
 
+/*################# biography ###################*/
 
+.bio .top-section{
+    background-color: #ededed;
+   
+    padding: 40px 0;
+    position: relative;
+    margin-bottom: 60px;
+}
 
+.bio .top-section .row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.bio .top-section .row {
+    display: flex;
+}
+.bio .top-section .side-menu {
+    width: 16.6666667%;
+  
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
 
+.bio .top-section ul{
+    width: 146px;
+    display: block;
+    /* background-color: #fff; */
+    z-index: 2;
+    font-size: 14px;
+  
+    padding: 0 !important;
+    position: fixed;
+    padding-left: 0;
+    list-style: none;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    unicode-bidi: isolate;
+}
 
+.bio .top-section ul li a {
+    display: block;
+    font-size: 1.3em;
+    letter-spacing: 1px;
+    color: var(--primary-text-color);
+}
 
+.bio .top-section  .img-container {
+    width: 41.66666667%;
+    float: left;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.bio .top-section img {
+    width: auto !important;
+    height: 100%;
+    max-width: 100%;
+}
+.bio .top-section .text {
+    width: 38.66666667%;
+    float: left;
+}
+.bio .top-section .text p {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.bio .main-content .bio-list {
+    margin-left: 16.66666667%;
+ 
+}
+.bio .main-content .bio-list .element{
+    margin-bottom: 60px;
+    font-size: 18px;
+
+}
+.bio .main-content .bio-list .element .elem1{
+    width: 33.333%;
+    float: left;
+    padding:0 15px;
+    box-sizing: border-box;
+}
+.bio .main-content .bio-list .element .elem2,.bio .main-content .bio-list .element .elem3{
+    width: 66%;
+    padding:0 15px ;
+    box-sizing: border-box;
+    float: right;
+}
+
+@media screen and (max-width:1060px) {
+    
+.bio .top-section{
+    background-color: #ededed;
+   
+    padding: 40px 0;
+    
+    margin-bottom: 60px;
+}
+
+.bio .top-section .side-menu {
+    width: 100%;
+    float: left;
+  
+}
+    .bio .top-section .navbar_inner{
+        display: none;
+    }
+    .bio .top-section .row {
+        display: block;
+    }
+    .bio .top-section  .img-container{
+        width: 100%;
+        
+        padding:0 15px;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .bio .top-section img {
+       
+        height: 100%;
+        max-height: 300px;
+        width: auto;
+      margin: 0 auto !important;
+      
+    }
+    .bio .top-section  .text{
+        width: 100%;
+        text-align: center;
+       float: none;
+    }
+    /*bio list*/
+    .bio .main-content .bio-list {
+        margin-left:0;
+     
+    }
+    .bio .main-content .bio-list .element{
+        margin-bottom: 60px;
+        font-size: 18px;
+    }
+    .bio .main-content .bio-list .element .elem1{
+        width: 100%;
+        float: none;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .bio .main-content .bio-list .element .elem2,.bio .main-content .bio-list .element .elem3{
+        width: 100%;
+        padding: 0;
+        box-sizing: border-box;
+        float: 0;
+    }
+}
 
 
 
@@ -663,19 +845,7 @@ footer .row{
    
     
 } 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*######################### her artwork image modal section ###############################*/
 
 
 /* Modal Styling */
@@ -782,7 +952,7 @@ z-index: 1200;
 right: 10px;
 top: 50%;
 transform: translateY(-50%);
-height: 300px;
+height: 220px;
 width: 60px;
     display: flex;
     flex-direction: column;
@@ -828,4 +998,3 @@ width: 60px;
     border-radius: 50%;
     cursor: pointer;
 }
-
