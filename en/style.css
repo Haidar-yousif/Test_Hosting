@@ -290,6 +290,9 @@ header.shrink  .logo a{
    
 }
 @media screen and (max-width: 500px) {
+    .burger { 
+        padding-right: 0;
+    }
     header  .logo a,header.shrink .logo a{
         font-size: 20px;
         padding: 10px 0 ;
@@ -889,12 +892,15 @@ max-height: 300px;
 
 
 /* ##################################### views of the studio section ##########################################*/
-
+.doc .slider-wrapper {
+    margin: 20px  auto 60px auto !important;
+}
 .slider-wrapper .slider-container {
     position: relative;
     width: 80%;
     max-width: 800px;
-    height: 400px;
+    max-height: 400px;
+    height: max-content;
     margin: 20px auto;
     overflow: hidden;
     display: flex;
@@ -973,7 +979,7 @@ max-height: 300px;
  .slider-wrapper  .thumbnail {
     flex: 0 0 auto;
     width: 80px;
-   
+    cursor: pointer;
     height: 60px;
     border: 2px solid transparent;
     transition: border 0.3s ease, filter 0.3s ease;
@@ -1000,6 +1006,9 @@ max-height: 300px;
     .slider-wrapper .slider-container {
         width: 100%;
     } 
+    .slider-wrapper .slide{
+        padding: 0;
+    }
   }
 
 
