@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //##############################################################################################################################################
 //##############################################################################################################################################
 //handling the burgle click
+let wind=1060
 
 document.addEventListener('DOMContentLoaded', () => {
     const burger = document.getElementById('burger');
@@ -47,6 +48,29 @@ document.addEventListener('DOMContentLoaded', () => {
         page.classList.toggle('hide-body-content');
     });
 });
+// Function to handle adding/removing the "close" class based on screen width
+function handleNavLinks() {
+    const burger = document.getElementById('burger');
+    const navLinks = document.querySelector('.nav');
+    const page = document.querySelector('body'); // Target the whole body or specific content sections
+    if(burger.classList.contains("open")){
+    if (window.innerWidth > wind) {
+        navLinks.classList.remove('show');
+        
+        page.classList.remove("hide-body-content");
+    } else {
+        navLinks.classList.add('show');
+       
+        page.classList.add("hide-body-content");
+    }}
+}
+
+// Run the function on page load
+handleNavLinks();
+
+// Add an event listener for window resize
+window.addEventListener('resize', handleNavLinks);
+
 //##############################################################################################################################################
 //##############################################################################################################################################
 // header scroll animation
