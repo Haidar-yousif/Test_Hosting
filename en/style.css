@@ -74,7 +74,7 @@ header {
 header .row{
    width: 100%;
    
-   flex-wrap: wrap;
+   
    display: flex;
    
    justify-content: space-between;
@@ -207,7 +207,7 @@ display: block ;
    }
     .nav.show {
         position: absolute;
-        top: 50px;
+        top:50px;
         left: 0;
         right: 0;
         width: 100%;
@@ -220,7 +220,7 @@ display: block ;
     .nav.show ul{
         display: block;
         width: fit-content;
-        margin: 30px 0;
+        margin: 20px 0;
         animation: slowly 0.3s;
 
     }
@@ -256,7 +256,8 @@ display: block ;
         cursor: pointer;
         flex-direction: column;
       margin-left: auto;
-        justify-content: flex-end;
+    
+        justify-content: center;
     }
     .burger .line {
 width: 30px;
@@ -300,7 +301,21 @@ header.shrink  .logo a{
     header .logo a span {
         font-size: 23px;
     }
+    .nav.show ul{
+        margin: 5px 0;
+     }
+}
+@media screen and (max-width: 322px){
+ header .logo {
+    width: 180px;
+ }
+ .nav.show {
+    top: 70px;
 
+ }
+ .nav.show ul{
+    margin: 5px 0;
+ }
 }
 
 /*########## contact main container ######*/

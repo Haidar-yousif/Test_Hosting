@@ -190,28 +190,28 @@ document.getElementById("send_mail").addEventListener("click", (e) => {
 //##############################################################################################################################################
 //##############################################################################################################################################
 // artwork section image handling
-//document.addEventListener('DOMContentLoaded', () => {
- //   const images = document.querySelectorAll('.artwork .img_container');
+document.addEventListener('DOMContentLoaded', () => {
+   const images = document.querySelectorAll('div.open-full-screen');
     
-//    const body = document.body;
+   const body = document.body;
   
-//    images.forEach(imagec => {
-//      imagec.addEventListener('click', () => {
-//        const fullscreenDiv = document.createElement('div');
-//        fullscreenDiv.classList.add('fullscreen');
+    images.forEach(imagec => {
+      imagec.addEventListener('click', () => {
+        const fullscreenDiv = document.createElement('div');
+        fullscreenDiv.classList.add('fullscreen');
   
-//        const fullscreenImage = document.createElement('img');
-//        fullscreenImage.src = imagec.children[0].src;
-//        fullscreenDiv.appendChild(fullscreenImage);
-//        body.appendChild(fullscreenDiv);
+        const fullscreenImage = document.createElement('img');
+        fullscreenImage.src = imagec.children[0].src;
+        fullscreenDiv.appendChild(fullscreenImage);
+       body.appendChild(fullscreenDiv);
   
         // Close fullscreen on click
-//        fullscreenDiv.addEventListener('click', () => {
-//          fullscreenDiv.remove();
-//        });
-//      });
-//    });
-//  });
+       fullscreenDiv.addEventListener('click', () => {
+         fullscreenDiv.remove();
+      });
+     });
+   });
+  });
  // #############################################################################################################
  let zoomLevel = 1; // Initial zoom level
 let isDragging = false; // Flag for drag state
