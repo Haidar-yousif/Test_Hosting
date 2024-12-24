@@ -43,7 +43,6 @@
         <link rel="stylesheet" href="./style.css">
         <meta name="robots" content="index, follow">
         <!-- External JavaScript -->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
 <body>
 
@@ -175,7 +174,32 @@
     
     
     
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
         <script src="../script.js"></script>
+        <script>
+            //##############################################################################################################################################
+// open fulls screen images
+document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('div.open-full-screen');
+     
+    const body = document.body;
+   
+     images.forEach(imagec => {
+       imagec.addEventListener('click', () => {
+         const fullscreenDiv = document.createElement('div');
+         fullscreenDiv.classList.add('fullscreen');
+   
+         const fullscreenImage = document.createElement('img');
+         fullscreenImage.src = imagec.children[0].src;
+         fullscreenDiv.appendChild(fullscreenImage);
+        body.appendChild(fullscreenDiv);
+   
+         // Close fullscreen on click
+        fullscreenDiv.addEventListener('click', () => {
+          fullscreenDiv.remove();
+       });
+      });
+    });
+   });
+        </script>
 </body>
 </html>
