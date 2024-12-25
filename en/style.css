@@ -68,7 +68,7 @@ header {
     background: 
     linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.69) 75%, rgba(255, 255, 255, 0.69) 76%, rgba(255, 255, 255, 0) 100%);
    transition: 0.2s ease-in-out;
-     z-index: 1000;
+     z-index: 1999;
 }
 
 header .row{
