@@ -23,11 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const isOnEnglishPage = window.location.pathname.includes('/en/');
         if (preferredLang === 'en' && !isOnEnglishPage) {
             // Redirect to the English version
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const currentPage = window.location.pathname.split('/').pop() || 'index';
             window.location.href = `../en/${currentPage}`;
         } else if (preferredLang === 'fr' && isOnEnglishPage) {
             // Redirect to the French version (default structure)
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const currentPage = window.location.pathname.split('/').pop() || 'index';
             window.location.href = `../fr/${currentPage}`;
         }
     }
