@@ -18,19 +18,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Ensure the correct language is loaded based on localStorage
     const preferredLang = localStorage.getItem("preferredLang");
-
     if (preferredLang) {
         const isOnEnglishPage = window.location.pathname.includes('/en/');
-        if (preferredLang === 'en' && !isOnEnglishPage) {
-            // Redirect to the English version
-            const currentPage = window.location.pathname.split('/').pop() || 'index';
-            window.location.href = `../en/${currentPage}`;
-        } else if (preferredLang === 'fr' && isOnEnglishPage) {
-            // Redirect to the French version (default structure)
-            const currentPage = window.location.pathname.split('/').pop() || 'index';
-            window.location.href = `../fr/${currentPage}`;
+        const isOnFrenchPage = window.location.pathname.includes('/fr/');
+
+        // Extract the current page's path after the language folder
+        const pathAfterLang = window.location.pathname.split('/').slice(2).join('/') || 'index';
+
+        // Only apply redirection if it's not a browser history navigation
+        if (window.performance && window.performance.navigation.type !== 2) { // 2 = back/forward navigation
+            if (preferredLang === 'en' && !isOnEnglishPage) {
+                const targetUrl = `/en/${pathAfterLang}${window.location.search}`;
+                window.location.href = targetUrl;
+            } else if (preferredLang === 'fr' && !isOnFrenchPage) {
+                const targetUrl = `/fr/${pathAfterLang}${window.location.search}`;
+                window.location.href = targetUrl;
+            }
         }
     }
+
+
 });
 //##############################################################################################################################################
 //##############################################################################################################################################
