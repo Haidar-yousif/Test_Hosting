@@ -35,11 +35,14 @@ document.addEventListener("DOMContentLoaded", () => {
         // Only apply redirection if it's not a browser history navigation
         if (window.performance.navigation.type !== 2) { // 2 = Back/forward navigation
             if (preferredLang === 'en' && !currentPath.includes('/en/')) {
-                const targetUrl = `${baseUrl}/en/${pathAfterLang}${window.location.search}`;
-                window.location.href = targetUrl;
-            } else if (preferredLang === 'fr' && !currentPath.includes('/fr/')) {
                 const targetUrl = `${baseUrl}/fr/${pathAfterLang}${window.location.search}`;
                 window.location.href = targetUrl;
+                localStorage.setItem("preferredLang",'fr');
+            } else if (preferredLang === 'fr' && !currentPath.includes('/fr/')) {
+                const targetUrl = `${baseUrl}/en/${pathAfterLang}${window.location.search}`;
+                window.location.href = targetUrl;
+                localStorage.setItem("preferredLang",'en');
+
             }
         }
     }
