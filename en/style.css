@@ -240,10 +240,10 @@ display: block ;
     }
     .nav-links a{
         padding: 16px 0 0 10px ;
-        font-size: 28px;
+        font-size: 25px;
     }
     .nav-links li.lang-switch a{
-        font-size: 24px !important;
+        font-size: 22px !important;
         padding: 20px 0 0 0 !important;
     }
 /*under menu mobile section*/
@@ -260,7 +260,7 @@ display: block ;
         justify-content: center;
     }
     .burger .line {
-width: 30px;
+width: 26px !important;
 height: 4px;
 background-color: var(--primary-text-color);
 margin: 2px 0;
@@ -384,7 +384,7 @@ width: 100%;
 
 .bloc_contact .form_elem #send_mail{
     width: 150px;
-    font-size: 22px;
+    font-size: 20px;
     color: var(--main-color);
     border :2px solid var(--main-color);
     background-color: white;
