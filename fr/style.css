@@ -844,8 +844,8 @@ max-height: 300px;
     display: flex;
     flex-wrap: wrap;
    
-        margin-left: 0px;
-        margin-right: 0px;
+        margin-left: -15px;
+        margin-right: -15px;
     
 }
 .doc.bio .top-section .title-page{
@@ -881,6 +881,7 @@ max-height: 300px;
     width: max-content;
     font-size: 1.1rem;
     transition: 0.2s;
+    word-wrap:break-word !important;
 }
 .doc.bio .top-section .text a:hover {
     background: #eee;
