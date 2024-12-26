@@ -1,6 +1,7 @@
 //##############################################################################################################################################
 //##############################################################################################################################################
 //update path based on the language
+// Update path based on the language
 document.addEventListener("DOMContentLoaded", () => {
     const langSwitchLinks = document.querySelectorAll(".lang-switch a");
 
@@ -23,7 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const isOnFrenchPage = window.location.pathname.includes('/fr/');
 
     // Extract the current page's path after the language folder
-    const pathAfterLang = window.location.pathname.split('/').slice(2).join('/');
+    const currentPath = window.location.pathname;
+    const langPrefix = currentPath.includes('/en/') ? '/en/' : '/fr/';
+    const pathAfterLang = currentPath.substring(currentPath.indexOf(langPrefix) + langPrefix.length);
 
     if (preferredLang) {
         // Only apply redirection if it's not a browser history navigation
