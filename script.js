@@ -28,14 +28,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const langPrefix = currentPath.includes('/en/') ? '/en/' : '/fr/';
     const pathAfterLang = currentPath.substring(currentPath.indexOf(langPrefix) + langPrefix.length);
 
+    // Get the part of the path before /en/ or /fr/
+    const baseUrl = currentPath.substring(0, currentPath.indexOf(langPrefix));
+
     if (preferredLang) {
         // Only apply redirection if it's not a browser history navigation
         if (window.performance.navigation.type !== 2) { // 2 = Back/forward navigation
-            if (preferredLang === 'en' && !isOnEnglishPage) {
-                const targetUrl = `/en/${pathAfterLang}${window.location.search}`;
+            if (preferredLang === 'en' && !currentPath.includes('/en/')) {
+                const targetUrl = `${baseUrl}/en/${pathAfterLang}${window.location.search}`;
                 window.location.href = targetUrl;
-            } else if (preferredLang === 'fr' && !isOnFrenchPage) {
-                const targetUrl = `/fr/${pathAfterLang}${window.location.search}`;
+            } else if (preferredLang === 'fr' && !currentPath.includes('/fr/')) {
+                const targetUrl = `${baseUrl}/fr/${pathAfterLang}${window.location.search}`;
                 window.location.href = targetUrl;
             }
         }
