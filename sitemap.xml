@@ -321,6 +321,12 @@
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
+ <url>
+    <loc>https://haidar-yousif.github.io/Test_Hosting/</loc>
+    <lastmod>2024-12-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
   <url>
     <loc>https://haidar-yousif.github.io/Test_Hosting/en/texts/</loc>
     <lastmod>2024-12-26</lastmod>
