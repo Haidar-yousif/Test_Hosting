@@ -178,7 +178,7 @@ padding: 0 !important;
 margin: 0 !important;
 }
 .nav-links .under_menu_mobile .navbar_inner  ul {
-margin-left:40px !important;
+margin-left:20px !important;
 display: block ;
 }
 
@@ -294,11 +294,16 @@ header.shrink  .logo a{
     .burger { 
         padding-right: 0;
     }
+
     header  .logo a,header.shrink .logo a{
         font-size: 20px;
         padding: 10px 0 ;
     }
     header .logo a span {
+        font-size: 23px;
+    }
+    .nav-links a{
+        padding: 16px 0 0 10px ;
         font-size: 23px;
     }
     .nav.show ul{
@@ -316,6 +321,12 @@ header.shrink  .logo a{
  .nav.show ul{
     margin: 5px 0;
  }
+ .nav-links .under_menu_mobile .navbar_inner ul li a {
+    padding: 1px !important;
+    margin: 0;
+    font-size: 16px;
+}
+
 }
 
 /*########## contact main container ######*/
@@ -583,6 +594,21 @@ padding: 25px 0;
 
 
 /* ################## artwork  ####################*/
+.artwork .artwork-header{
+    display :flex;
+    width: 80%;
+    align-items: center;
+    color: #222;
+    margin: 50px auto 60px auto;
+    background-color: #e5e5e5;
+    padding: 20px;
+}
+.artwork .artwork-header .content {
+    width: 60%;
+    font-size: 30px;
+}
+
+
 
 .gallery {
     display: grid;
@@ -647,12 +673,28 @@ max-height: 300px;
     object-fit: contain;
     cursor: pointer;
   }
-
+@media  screen and (max-width: 1060px) {
+    .artwork .artwork-header{
+        display :flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        color: #222;
+        margin: 80px auto 60px auto;
+        background-color: #e5e5e5;
+        padding: 20px;
+    }
+    .artwork .artwork-header .content {
+        width: 100%;
+        font-size: 23px;
+        margin: 20px 0;
+    }
+    
+}
 /*################# biography ###################*/
 
 .bio .top-section{
     background-color: #ededed;
-   
     padding: 40px 0;
     position: relative;
     margin-bottom: 60px;
@@ -666,7 +708,7 @@ max-height: 300px;
     display: flex;
 }
 .bio .top-section .side-menu {
-    width: 16.6666667%;
+    width: 20%;
   
     float: left;
     position: relative;
@@ -676,7 +718,7 @@ max-height: 300px;
 }
 
 .bio .top-section ul:not(.bio .text ul){
-    width: 160px;
+    width: 20%;
     display: block;
     /* background-color: #fff; */
     z-index: 2;
@@ -706,19 +748,6 @@ max-height: 300px;
     color: var(--primary-text-color);
 }
 
-.bio .top-section  .img-container {
-    width: 41.66666667%;
-    float: left;
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-.bio .top-section img {
-    width: auto !important;
-    height: 100%;
-    max-width: 100%;
-}
 .bio .top-section .text {
     width: 38.66666667%;
     float: left;
@@ -744,34 +773,47 @@ max-height: 300px;
     padding: 2px 4px;
     border-radius: 4px;
   }
-  
-.bio .main-content .bio-list {
-    margin-left: 16.66666667%;
- 
-}
 .bio .title-page h1{
     font-size: 25px;
     font-weight: 500;
-    
+    margin-bottom: 10px;
 }
-.bio .main-content .bio-list .element{
-    margin-bottom: 60px;
+.bio .top-section .bio-list .element{
+    margin-bottom: 40px;
     font-size: 18px;
 
 }
-.bio .main-content .bio-list .element .elem1{
-    width: 33.333%;
-    float: left;
-    padding:0 15px;
-    box-sizing: border-box;
+.bio .top-section .bio-list .element .elem1{
+    padding: 15px 0;
+    font-size: 23px;
+    font-weight: bold;
 }
-.bio .main-content .bio-list .element .elem2,.bio .main-content .bio-list .element .elem3{
-    width: 66%;
-    padding:0 15px ;
+.bio .top-section  .element .elem2,.bio .top-section .bio-list .element .elem3{
+    width: 100%;
+    padding-right:15px  ;
     box-sizing: border-box;
-    float: right;
+    
 }
 
+.bio .top-section .bio-list .element a{
+    font-size: 15px;
+    display: none !important;
+    text-decoration: none;
+    color: #1e1e1e;
+} 
+.bio .top-section .bio-list .element .references{
+    font-size: 13px;
+    font-weight: bold;
+    font-style: italic;
+    padding:20px 0;
+}
+.bio .top-section .bio-list .element .references-list {
+    padding-right: 15px;
+}
+.bio .top-section .bio-list .element .reference{
+    font-size: 13px;
+    font-style: italic;
+}
 @media screen and (max-width:1060px) {
     
 .bio .top-section{
@@ -779,7 +821,7 @@ max-height: 300px;
    
     padding: 40px 0;
     
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .bio .top-section .side-menu {
@@ -793,46 +835,27 @@ max-height: 300px;
     .bio .top-section .row {
         display: block;
     }
-    .bio .top-section  .img-container{
-        width: 100%;
-        
-        padding:0 15px;
-        margin-bottom: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .bio .top-section img {
-       
-        height: 100%;
-        max-height: 300px;
-        width: auto;
-      margin: 0 auto !important;
-      
-    }
+  
     .bio .top-section  .text{
         width: 100%;
         text-align: center;
        float: none;
     }
     /*bio list*/
-    .bio .main-content .bio-list {
-        margin-left:0;
-     
-    }
-    .bio .main-content .bio-list .element{
-        margin-bottom: 60px;
+    .bio .top-section .bio-list .element{
+        margin-bottom: 0px;
         font-size: 18px;
     }
-    .bio .main-content .bio-list .element .elem1{
+    .bio .top-section .bio-list .element .elem1{
         width: 100%;
-        float: none;
-        padding: 0;
-        box-sizing: border-box;
+        padding: 15px 0;
+    font-size: 23px;
+    font-weight: bold;
     }
-    .bio .main-content .bio-list .element .elem2,.bio .main-content .bio-list .element .elem3{
+    .bio .top-section   .elem2,.bio .top-section .bio-list .element .elem3{
         width: 100%;
-        padding: 0;
+        padding: 0 !important;
+        padding-right: 0px !important;
         box-sizing: border-box;
         float: 0;
     }
@@ -851,15 +874,14 @@ max-height: 300px;
 .doc.bio .top-section .title-page{
     margin-bottom: 10px;
     width: 100%;
-    margin-left: 16.666668%;
+    margin-left: 20%;
 }
 .doc.bio .top-section  .img-container {
     width: 100%;
     max-width: 1000px;
-    
     min-height: 1px;
     padding: 0 !important;
-    margin-left: 16.666668%;
+    margin-left: 20%;
 }
 
 .doc.bio .top-section img {
@@ -871,9 +893,9 @@ max-height: 300px;
 .doc.bio .top-section .text {
     width: 100%;
     float: left;
-    margin-left: 16.666668%;
+    margin-left: 20%;
 }
-.doc.bio .top-section .text a {
+.doc .top-section .text a {
     padding: 5px 5px 5px 0px;
     margin: 10px 0;
     display: block;
@@ -883,10 +905,12 @@ max-height: 300px;
     transition: 0.2s;
     word-wrap:break-word !important;
 }
-.doc.bio .top-section .text a:hover {
+.doc .top-section .text a:hover {
     background: #eee;
 }
-
+.doc.bio .top-section .text h3 {
+    margin-block: 20px 10px;
+}
 @media screen and (max-width:1060px) {
     .doc.bio .top-section .row {
         display: flex;
@@ -896,7 +920,7 @@ max-height: 300px;
         
     }
     .doc.bio .top-section .title-page{
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         margin-left: 0;
     }
     .doc.bio .top-section  .img-container {
@@ -909,25 +933,25 @@ max-height: 300px;
         margin-left: 0;
     }
     
-    .doc.bio .top-section .img-container img {
+    .doc.bio .top-section .img-container img  {
         width: auto !important;
         height: 100%;   
         max-width: 100%;
         max-height:100%;
     }
+  
     .doc.bio .top-section .text {
         width: 100%;
         float: left;
         margin-left: 0;
         text-align: left;
     }
-    .doc.bio .top-section .text a {
-        margin-top: 0 !important;
-        font-size: 20px;
-        
-        
+    .doc .top-section .text a {
+        margin-top: 10px !important;
+        font-size: 1.1rem;
     }
 }
+
 
 
 
@@ -957,6 +981,7 @@ max-height: 300px;
 
   .slider-wrapper .slide {
     flex: 0 0 100%;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -966,10 +991,22 @@ max-height: 300px;
   }
 
   .slider-wrapper .slide img {
-    
     max-width: 100%;
     max-height: 100%;
     border-radius: 10px;
+  }
+  /*creche edition*/
+  .creche .slider-wrapper .slide img {
+    width: 60% !important;
+    height: auto;   
+    border-radius: 10px !important;
+  }
+
+  /*artwork edition*/
+  .artwork .slider-wrapper .slide img{
+    max-width: 50%;
+    max-height: 100%;
+    border-radius: 10px; 
   }
 
   .slider-wrapper .controls {
@@ -1049,8 +1086,18 @@ max-height: 300px;
     .slider-wrapper .slide{
         padding: 0;
     }
-  }
 
+  }
+@media screen and (max-width: 500px){
+    /*creche edition*/
+.creche .slider-wrapper .slide img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    border-radius: 10px !important;
+    width: auto !important;
+    height: 100%;   
+  }
+}
 
 
 

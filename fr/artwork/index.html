@@ -13,7 +13,7 @@
         
         <!-- Métadonnées SEO -->
         <meta name="description" content="Jano Xhenseval - Son œuvre, créée en 2025, ce site sert de plateforme pour explorer l'univers artistique de Jano Xhenseval. Il présente une association, ses œuvres artistiques, ses textes écrits et une page de contact complète. La section 'Peinture' explore sa biographie, ses expositions et une vaste collection de documents, offrant un aperçu profond de son parcours artistique et de ses contributions.">
-        <meta name="keywords" content="Jano Xhenseval, biographie, peintre, art, expositions, galerie, œuvres artistiques, Jano Xhenseval - Son œuvre, créée en 2025, ce site sert de plateforme pour explorer l'univers artistique de Jano Xhenseval. Il présente une association, ses œuvres artistiques, ses textes écrits et une page de contact complète. La section 'Peinture' explore sa biographie, ses expositions et une vaste collection de documents, offrant un aperçu profond de son parcours artistique et de ses contributions,, artiste belge, paysages abstraits, peinture, dessin, vitrail, tapisserie, fresques, Beaux-Arts, expositions à Paris, art non figuratif, compositions chromatiques, art contemporain, art moderne, art du XXe siècle, artistes européens, histoire de l'art, collections d'art, galeries d'art, expositions d'art, installations artistiques, arts visuels, techniques artistiques, mouvements artistiques, éducation artistique, ateliers d'art, critique d'art, restauration d'art">
+        <meta name="keywords" content="Jano Xhenseval,les amis de jano xhenseval, biographie, peintre, art, expositions, galerie, œuvres artistiques, Jano Xhenseval - Son œuvre, créée en 2025, ce site sert de plateforme pour explorer l'univers artistique de Jano Xhenseval. Il présente une association, ses œuvres artistiques, ses textes écrits et une page de contact complète. La section 'Peinture' explore sa biographie, ses expositions et une vaste collection de documents, offrant un aperçu profond de son parcours artistique et de ses contributions,, artiste belge, paysages abstraits, peinture, dessin, vitrail, tapisserie, fresques, Beaux-Arts, expositions à Paris, art non figuratif, compositions chromatiques, art contemporain, art moderne, art du XXe siècle, artistes européens, histoire de l'art, collections d'art, galeries d'art, expositions d'art, installations artistiques, arts visuels, techniques artistiques, mouvements artistiques, éducation artistique, ateliers d'art, critique d'art, restauration d'art">
         <meta name="robots" content="index, follow">
         
         <!-- Métadonnées Open Graph -->
@@ -77,10 +77,38 @@
 </header>
 
 
-
+        <div id="main_container" class="artwork">
+                <div class="container-fluid" style="background-color:#e5e5e5 ;">
+                    <div class="artwork-header">
+                        <div class="content">Jano s'est aussi essayée à la sculpture et a notamment réalisé dans sa jeunesse, avec un morceau de bois qu'elle avait trouvé, cette magnifique version du Buisson Ardent.
+                        </div>
+                        <div class="slider-wrapper">
+                            <div class="slider-container">
+                            <div class="slider-track">
+                                <div class="slide"><img onclick="openImageModal('../../assest/JX-original/JX-S0100_1-8_20241230_112438.jpg')" loading="lazy" src="../../assest/JX/JX-S0100_1-8_20241230_112438.jpg" alt="Image 1"></div>
+                                <div class="slide"><img onclick="openImageModal('../../assest/JX-original/JX-S0100_4-8_20241230_113031.jpg')" loading="lazy"  src="../../assest/JX/JX-S0100_4-8_20241230_113031.jpg" alt="Image 2"></div>
+                                <div class="slide"><img onclick="openImageModal('../../assest/JX-original/JX-S0100_7-8_20241230_113052.jpg')" loading="lazy"  src="../../assest/JX/JX-S0100_7-8_20241230_113052.jpg" alt="Image 3"></div>
+                            </div>
+                            <div class="controls">
+                                <button class="control prev">&#10094;</button>
+                                <button class="control next">&#10095;</button>
+                            </div>
+                            </div>
+                            <div class="thumbnail-container">
+                            <div class="thumbnail" data-index="0"><img loading="lazy" src="../../assest/JX/JX-S0100_1-8_20241230_112438.jpg" alt="Image 1"></div>
+                            <div class="thumbnail" data-index="1"><img loading="lazy" src="../../assest/JX/JX-S0100_4-8_20241230_113031.jpg" alt="Image 2"></div>
+                            <div class="thumbnail" data-index="2"><img loading="lazy" src="../../assest/JX/JX-S0100_7-8_20241230_113052.jpg" alt="Image 3"></div>
+                            </div>
+                        </div>
+    
+                    </div>
+    
+                </div>
+        </div>
         <!--main container-->
         <div id="main_container" class="artwork">
             <div class="container-fluid">
+               
                 <div class="gallery imgs">
                     <div class="img_container" onclick="openImageModal('../../assest/artwork_section/img22.jpg')">
                         <img src="../../assest/artwork_section_compress/img22.jpg" loading="lazy">
@@ -261,5 +289,44 @@
 
         <script src="../../script.js"></script>
         <script src="../../zoomimg.js"></script>
+        <script>
+            //slide wrapper for views of the studio
+    document.querySelectorAll('.slider-wrapper').forEach((sliderWrapper) => {
+        const track = sliderWrapper.querySelector('.slider-track');
+        const slides = sliderWrapper.querySelectorAll('.slide');
+        const thumbnails = sliderWrapper.querySelectorAll('.thumbnail');
+        const prevButton = sliderWrapper.querySelector('.prev');
+        const nextButton = sliderWrapper.querySelector('.next');
+    
+        let currentIndex = 0;
+    
+        function updateSlider() {
+          const slideWidth = slides[0].getBoundingClientRect().width;
+          track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+          thumbnails.forEach((thumb, index) => {
+            thumb.classList.toggle('in', index === currentIndex);
+          });
+        }
+    
+        function goToSlide(index) {
+        
+          if (index < 0) currentIndex = slides.length - 1;
+          else if (index >= slides.length) currentIndex = 0;
+          else currentIndex = index;
+          updateSlider();
+        }
+    
+        prevButton.addEventListener('click', () => goToSlide(currentIndex - 1));
+        nextButton.addEventListener('click', () => goToSlide(currentIndex + 1));
+    
+        thumbnails.forEach((thumbnail, index) => {
+          thumbnail.addEventListener('click', () => goToSlide(index));
+        });
+    
+        window.addEventListener('resize', updateSlider);
+        updateSlider();
+      });
+       
+    </script>
     </body>
 </html>
