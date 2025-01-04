@@ -44,10 +44,17 @@ function zoomImage(value) {
     applyZoom();
 }
 
+
 // Apply Zoom to Image
 function applyZoom() {
     const modalImage = document.getElementById("modalImage");
     modalImage.style.transform = `matrix(${zoomLevel}, 0, 0, ${zoomLevel}, ${transformMatrix[4]}, ${transformMatrix[5]})`;
+
+    // Sync the slider value with zoom level
+    const zoomRange = document.getElementById("zoomRange");
+    if (zoomRange) {
+        zoomRange.value = zoomLevel; // Update the slider value
+    }
 }
 
 // Enable dragging of the image (Mouse)

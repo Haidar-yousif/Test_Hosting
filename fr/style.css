@@ -699,7 +699,63 @@ max-height: 300px;
     position: relative;
     margin-bottom: 60px;
 }
+/*bio head*/
 
+.bio.bio_head .top-section{
+    padding: 0;
+    margin-bottom: 0 !important;
+}
+.bio.bio_head .bio_head_img {
+   float: left;
+   width: 50%;
+   height: 350px;
+   max-width: 500px;
+   padding:10px ;
+}
+.bio.bio_head .bio_head_img  img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.bio.bio_head .bio_head_img_text {
+    float: right;
+    width: 30%;
+    padding: 20px;
+display: flex;
+align-items: center;
+line-height: 1.4rem;
+}
+@media screen and (max-width: 1060px) {
+    .bio.bio_head .bio_head_img,
+    .bio.bio_head .bio_head_img_text {
+        width: 100%; /* Full width for both containers */
+        margin: 0 auto; /* Center align */
+        display: flex;
+        flex-direction: column; /* Stack content vertically */
+        align-items: center; /* Center align the content horizontally */
+        text-align: center; /* Align text for readability */
+        padding:5px 0; /* Add spacing for better layout */
+        box-sizing: border-box; /* Include padding in width */
+    }
+
+    .bio.bio_head .bio_head_img img {
+        max-width: 100%; /* Ensure the image scales to fit the container */
+        max-height: 100%; /* Prevent the image from exceeding the container height */
+        object-fit: cover; /* Preserve aspect ratio and fit within the container */
+        display: block; /* Prevent unwanted whitespace around the image */
+        margin: 0 auto; /* Center the image if the container allows it */
+    }
+    .bio.bio_head .bio_head_img_text {
+        font-size: 0.9rem; /* Adjust font size for smaller screens */
+        line-height: 1.5; /* Improve text readability */
+    }
+}
+
+/*bio body*/
+.bio.bio_body {
+    margin-top: 20px !important;
+ }
+/*general bio setting*/
 .bio .top-section .row {
     margin-left: -15px;
     margin-right: -15px;
@@ -814,7 +870,7 @@ max-height: 300px;
     font-size: 13px;
     font-style: italic;
 }
-@media screen and (max-width:1060px) {
+@media screen and (max-width: 1060px) {
     
 .bio .top-section{
     background-color: #ededed;
@@ -842,14 +898,14 @@ max-height: 300px;
        float: none;
     }
     /*bio list*/
-    .bio .top-section .bio-list .element{
+    .bio .top-section  .element{
         margin-bottom: 0px;
-        font-size: 18px;
+        font-size: 16px !important;
     }
-    .bio .top-section .bio-list .element .elem1{
+    .bio .top-section  .element .elem1{
         width: 100%;
         padding: 15px 0;
-    font-size: 23px;
+    font-size: 21px !important;
     font-weight: bold;
     }
     .bio .top-section   .elem2,.bio .top-section .bio-list .element .elem3{

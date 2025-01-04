@@ -134,8 +134,8 @@
                     </div>
                 </div>
                 <div class="title-page"><h1>Documents</h1></div>
-                    <div class="img-container open-full-screen">
-                        <img src=" ../../assest/favicon/Jano_affiche.png" alt="">
+                    <div class="img-container">
+                        <img onclick="openImageModal(' ../../assest/favicon/Jano_affiche.png')" src=" ../../assest/favicon/Jano_affiche.png" alt="">
                     </div>
                     <div class="text">
                         <a href=" ../../en/view " title="Views of the studio">Views of the studio</a>
@@ -151,6 +151,22 @@
 
 
 
+<!--image modal-->
+<div   class="modal-section">
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+           <div class="image-content">
+            <img id="modalImage" src="" alt="Full-size Image">
+           </div>
+        </div>
+        <div class="controls">
+            <button onclick="zoomOut()">-</button>
+            <input type="range" id="zoomRange" min="0.1" max="10" step="0.2" value="1" oninput="zoomImage(this.value)">
+            <button  onclick="zoomIn()">+</button>
+        </div>
+    </div>
+</div>
 
 
 <!-- footer-->
@@ -183,31 +199,7 @@
     
     
         <script src=" ../../script.js"></script>
-        <script>
-            //##############################################################################################################################################
-// open fulls screen images
-document.addEventListener('DOMContentLoaded', () => {
-    const images = document.querySelectorAll('div.open-full-screen');
-     
-    const body = document.body;
-   
-     images.forEach(imagec => {
-       imagec.addEventListener('click', () => {
-         const fullscreenDiv = document.createElement('div');
-         fullscreenDiv.classList.add('fullscreen');
-   
-         const fullscreenImage = document.createElement('img');
-         fullscreenImage.src = imagec.children[0].src;
-         fullscreenDiv.appendChild(fullscreenImage);
-        body.appendChild(fullscreenDiv);
-   
-         // Close fullscreen on click
-        fullscreenDiv.addEventListener('click', () => {
-          fullscreenDiv.remove();
-       });
-      });
-    });
-   });
-        </script>
+        <script src="../../zoomimg.js"></script>
+       
 </body>
 </html>

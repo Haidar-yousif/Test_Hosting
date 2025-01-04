@@ -1,65 +1,75 @@
-
 //##############################################################################################################################################
 //##############################################################################################################################################
-//handling missing contact form input 
+// Handling missing contact form input 
 
-document.addEventListener("DOMContentLoaded",()=>{
-    const nameInput=document.getElementById("nom");
-    const emailInput =document.getElementById("destinataire");
-    const MessageInput=document.querySelector("textarea");
-    const SubjectInput=document.getElementById("sujet");
-    const nameError=document.querySelector(" .error-nom");
-    const emailError=document.querySelector(".error-destin");
-    
-    let isvalidNom=false;
-    let isvalidMail=false;
-    
+document.addEventListener("DOMContentLoaded", () => {
+    const nameInput = document.getElementById("nom");
+    const emailInput = document.getElementById("destinataire");
+    const messageInput = document.querySelector("textarea");
+    const subjectInput = document.getElementById("sujet");
+
+    const nameError = document.querySelector(".error-nom");
+    const emailError = document.querySelector(".error-destin");
+    const subjectError = document.querySelector(".error-sujet");
+    const messageError = document.querySelector(".error-message");
+
     // Initialize EmailJS
     emailjs.init('kiiyjRptDBbgH5nwW');
-    nameInput.addEventListener("blur",()=>{
-    if(nameInput.value.trim()===""){
-    isvalidNom=false;
-        nameError.style.display ="block";
-    }
-    else {
-        isvalidNom=true;
-        nameError.style.display ="none";
-    }
-    });
-    
-    emailInput.addEventListener("blur", () => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (emailInput.value.trim() === "") {
-            isvalidMail=false
-            emailError.style.display = "block";
-        } else if (!emailRegex.test(emailInput.value)) {
-        isvalidMail=false
-            emailError.style.display = "block";
+
+    // Helper function for validating fields
+    function validateField(input, errorElement, validationFn) {
+        if (validationFn(input.value.trim())) {
+            errorElement.style.display = "none";
+            return true;
         } else {
-            isvalidMail=true;
-            emailError.style.display = "none";
+            errorElement.style.display = "block";
+            return false;
+        }
+    }
+
+    // Add blur event listeners for validation
+    nameInput.addEventListener("blur", () => {
+        validateField(nameInput, nameError, (value) => value !== "");
+    });
+
+    emailInput.addEventListener("blur", () => {
+        validateField(emailInput, emailError, (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value));
+    });
+
+    // Add input event listeners to hide errors while typing
+    subjectInput.addEventListener("input", () => {
+        if (subjectInput.value.trim() !== "") {
+            subjectError.style.display = "none";
         }
     });
+
+    messageInput.addEventListener("input", () => {
+        if (messageInput.value.trim() !== "") {
+            messageError.style.display = "none";
+        }
+    });
+
     document.getElementById("send_mail").addEventListener("click", (e) => {
         e.preventDefault();
-        const preferredLang = localStorage.getItem("preferredLang");
-    
-        const Pobup={
-            "en":{
-                "success":{
+
+        const preferredLang = localStorage.getItem("preferredLang") || "en";
+
+        const Popups = {
+            "en": {
+                "success": {
                     title: "Success!",
                     text: "Your message has been sent.",
                     icon: "success",
                     confirmButtonText: "OK",
                 },
-                "error":{
+                "error": {
                     title: "Error!",
                     text: "There was an issue sending your message.",
                     icon: "error",
                     confirmButtonText: "Try Again",
                 }
             },
-            "fr":{
+            "fr": {
                 "success": {
                     title: "Succès!",
                     text: "Votre message a été envoyé.",
@@ -73,27 +83,36 @@ document.addEventListener("DOMContentLoaded",()=>{
                     confirmButtonText: "Réessayer",
                 }
             }
-        
-        }
-      
-        if (isvalidNom && isvalidMail) {
-            const param={
-                from_name:nameInput.value,
-                email_id:emailInput.value,
-                subject:SubjectInput.value,
-                message:MessageInput.value
-            }
+        };
+
+        // Validate all fields
+        const isNameValid = validateField(nameInput, nameError, (value) => value !== "");
+        const isEmailValid = validateField(emailInput, emailError, (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value));
+        const isSubjectValid = validateField(subjectInput, subjectError, (value) => value !== "");
+        const isMessageValid = validateField(messageInput, messageError, (value) => value !== "");
+
+        if (isNameValid && isEmailValid && isSubjectValid && isMessageValid) {
+            const params = {
+                from_name: nameInput.value,
+                email_id: emailInput.value,
+                subject: subjectInput.value,
+                message: messageInput.value
+            };
+
             // Send email using EmailJS
-            emailjs.send("service_6g2zndm", "template_g3m6fsk",
-                param
-            ).then(() => {
-                Swal.fire(Pobup[preferredLang]["success"]);
-            }).catch((error) => {
-                Swal.fire(
-                    Pobup[preferredLang]["error"]
-                );
-                console.error("EmailJS Error:", error);
-            });
+            emailjs.send("service_6g2zndm", "template_g3m6fsk", params)
+                .then(() => {
+                    Swal.fire(Popups[preferredLang]["success"]);
+                    // Clear fields after successful submission
+                    nameInput.value = "";
+                    emailInput.value = "";
+                    subjectInput.value = "";
+                    messageInput.value = "";
+                })
+                .catch((error) => {
+                    Swal.fire(Popups[preferredLang]["error"]);
+                    console.error("EmailJS Error:", error);
+                });
         }
     });
-    });
+});
