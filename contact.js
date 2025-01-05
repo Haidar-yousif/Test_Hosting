@@ -70,7 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 from_name: nameInput.value,
                 email_id: emailInput.value,
                 subject: subjectInput.value,
-                message: messageInput.value
+                message: messageInput.value,
+                reply_to: emailInput.value
             };
 
             // Try sending the email using the accounts sequentially

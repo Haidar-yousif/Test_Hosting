@@ -339,7 +339,7 @@ header.shrink  .logo a{
     margin: auto;
 }
  .contact .row h2{
-    padding:10px 0;
+        padding:10px 0;
     font-weight: 500;
     font-size: 28px;
     
@@ -426,7 +426,12 @@ width: 100%;
         width: 100%;
         max-width: 100%;
     }
-
+    .contact .row h2{
+        padding:10px 0;
+        font-weight: 500;
+        font-size: 22px;
+        
+    }
 }
 
 /*############# text section ##############*/

@@ -22,8 +22,26 @@ function openImageModal(imageSrc) {
 
 // Close Modal
 function closeModal() {
-    document.getElementsByClassName("modal-section")[0].style.display="none";
+    // document.getElementsByClassName("modal-section")[0].style.display="none";
+    // document.getElementById("imageModal").style.display = "none";
+    const modalImage = document.getElementById("modalImage");
+    
+    // Reset transform matrix to initial state
+    transformMatrix = [1, 0, 0, 1, 0, 0];
+    zoomLevel = 1; // Reset zoom level
+
+    // Reset image transformation
+    modalImage.style.transform = `matrix(${transformMatrix.join(",")})`;
+
+    // Hide the modal
+    document.getElementsByClassName("modal-section")[0].style.display = "none";
     document.getElementById("imageModal").style.display = "none";
+
+    // Reset zoom range slider if it exists
+    const zoomRange = document.getElementById("zoomRange");
+    if (zoomRange) {
+        zoomRange.value = zoomLevel;
+    }
 }
 
 // Zoom In
