@@ -1,7 +1,4 @@
-//##############################################################################################################################################
-//##############################################################################################################################################
 // Handling missing contact form input 
-
 document.addEventListener("DOMContentLoaded", () => {
     const nameInput = document.getElementById("nom");
     const emailInput = document.getElementById("destinataire");
@@ -13,8 +10,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const subjectError = document.querySelector(".error-sujet");
     const messageError = document.querySelector(".error-message");
 
-    // Initialize EmailJS
-    emailjs.init('kiiyjRptDBbgH5nwW');
+    // Initialize EmailJS accounts
+    const emailAccounts = [
+        {
+            publicKey: "kiiyjRptDBbgH5nwW", // First account public key
+            serviceID: "service_6g2zndm",   // First account service ID
+            templateID: "template_g3m6fsk" // First account template ID
+        },
+        {
+            publicKey: "BTLiImQ3p_kLmA2Oe", // Second account public key
+            serviceID: "service_42fyofv",   // Second account service ID
+            templateID: "template_g3m6fsk" // Second account template ID
+        }
+    ];
+
+    emailjs.init(emailAccounts[0].publicKey);
 
     // Helper function for validating fields
     function validateField(input, errorElement, validationFn) {
@@ -27,27 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Add blur event listeners for validation
-    nameInput.addEventListener("blur", () => {
-        validateField(nameInput, nameError, (value) => value !== "");
-    });
-
-    emailInput.addEventListener("blur", () => {
-        validateField(emailInput, emailError, (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value));
-    });
-
-    // Add input event listeners to hide errors while typing
-    subjectInput.addEventListener("input", () => {
-        if (subjectInput.value.trim() !== "") {
-            subjectError.style.display = "none";
-        }
-    });
-
-    messageInput.addEventListener("input", () => {
-        if (messageInput.value.trim() !== "") {
-            messageError.style.display = "none";
-        }
-    });
+    // Add blur and input event listeners for validation
+    nameInput.addEventListener("blur", () => validateField(nameInput, nameError, (value) => value !== ""));
+    emailInput.addEventListener("blur", () => validateField(emailInput, emailError, (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)));
+    subjectInput.addEventListener("input", () => (subjectError.style.display = subjectInput.value.trim() ? "none" : "block"));
+    messageInput.addEventListener("input", () => (messageError.style.display = messageInput.value.trim() ? "none" : "block"));
 
     document.getElementById("send_mail").addEventListener("click", (e) => {
         e.preventDefault();
@@ -56,32 +50,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const Popups = {
             "en": {
-                "success": {
-                    title: "Success!",
-                    text: "Your message has been sent.",
-                    icon: "success",
-                    confirmButtonText: "OK",
-                },
-                "error": {
-                    title: "Error!",
-                    text: "There was an issue sending your message.",
-                    icon: "error",
-                    confirmButtonText: "Try Again",
-                }
+                success: { title: "Success!", text: "Your message has been sent.", icon: "success", confirmButtonText: "OK" },
+                error: { title: "Error!", text: "There was an issue sending your message.", icon: "error", confirmButtonText: "Try Again" }
             },
             "fr": {
-                "success": {
-                    title: "Succès!",
-                    text: "Votre message a été envoyé.",
-                    icon: "success",
-                    confirmButtonText: "D'accord",
-                },
-                "error": {
-                    title: "Erreur!",
-                    text: "Il y a eu un problème lors de l'envoi de votre message.",
-                    icon: "error",
-                    confirmButtonText: "Réessayer",
-                }
+                success: { title: "Succès!", text: "Votre message a été envoyé.", icon: "success", confirmButtonText: "D'accord" },
+                error: { title: "Erreur!", text: "Il y a eu un problème lors de l'envoi de votre message.", icon: "error", confirmButtonText: "Réessayer" }
             }
         };
 
@@ -99,20 +73,32 @@ document.addEventListener("DOMContentLoaded", () => {
                 message: messageInput.value
             };
 
-            // Send email using EmailJS
-            emailjs.send("service_6g2zndm", "template_g3m6fsk", params)
-                .then(() => {
-                    Swal.fire(Popups[preferredLang]["success"]);
-                    // Clear fields after successful submission
-                    nameInput.value = "";
-                    emailInput.value = "";
-                    subjectInput.value = "";
-                    messageInput.value = "";
-                })
-                .catch((error) => {
-                    Swal.fire(Popups[preferredLang]["error"]);
-                    console.error("EmailJS Error:", error);
-                });
+            // Try sending the email using the accounts sequentially
+            let attempt = 0;
+
+            function sendEmail() {
+                if (attempt < emailAccounts.length) {
+                    const account = emailAccounts[attempt];
+                    emailjs.init(account.publicKey);
+                    emailjs.send(account.serviceID, account.templateID, params)
+                        .then(() => {
+                            Swal.fire(Popups[preferredLang].success);
+                            nameInput.value = "";
+                            emailInput.value = "";
+                            subjectInput.value = "";
+                            messageInput.value = "";
+                        })
+                        .catch((error) => {
+                            console.error(`EmailJS Error (Account ${attempt + 1}):`, error);
+                            attempt++;
+                            sendEmail(); // Retry with the next account
+                        });
+                } else {
+                    Swal.fire(Popups[preferredLang].error);
+                }
+            }
+
+            sendEmail(); // Start the email sending process
         }
     });
 });
