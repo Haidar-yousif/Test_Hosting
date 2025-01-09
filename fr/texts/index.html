@@ -131,6 +131,22 @@
     </div>
 </div>
 
+<div   class="modal-section">
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+           <div class="image-content">
+            <img id="modalImage" src="" alt="Full-size Image">
+           </div>
+        </div>
+        <div class="controls">
+            <button onclick="zoomOut()">-</button>
+            <input type="range" id="zoomRange" min="0.1" max="10" step="0.2" value="1" oninput="zoomImage(this.value)">
+            <button  onclick="zoomIn()">+</button>
+        </div>
+    </div>
+</div>
+
 <!--footer-->
 <footer>
     <div class="container-fluid">
@@ -157,5 +173,45 @@
 </footer>
 
 <script src="../../script.js"></script>
+<script src="../../zoomimg.js"></script>
+    <script>
+        //slide wrapper for views of the studio
+document.querySelectorAll('.slider-wrapper').forEach((sliderWrapper) => {
+    const track = sliderWrapper.querySelector('.slider-track');
+    const slides = sliderWrapper.querySelectorAll('.slide');
+    const thumbnails = sliderWrapper.querySelectorAll('.thumbnail');
+    const prevButton = sliderWrapper.querySelector('.prev');
+    const nextButton = sliderWrapper.querySelector('.next');
+
+    let currentIndex = 0;
+
+    function updateSlider() {
+      const slideWidth = slides[0].getBoundingClientRect().width;
+      track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+      thumbnails.forEach((thumb, index) => {
+        thumb.classList.toggle('in', index === currentIndex);
+      });
+    }
+
+    function goToSlide(index) {
+    
+      if (index < 0) currentIndex = slides.length - 1;
+      else if (index >= slides.length) currentIndex = 0;
+      else currentIndex = index;
+      updateSlider();
+    }
+
+    prevButton.addEventListener('click', () => goToSlide(currentIndex - 1));
+    nextButton.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+    thumbnails.forEach((thumbnail, index) => {
+      thumbnail.addEventListener('click', () => goToSlide(index));
+    });
+
+    window.addEventListener('resize', updateSlider);
+    updateSlider();
+  });
+   
+</script>
 </body>
 </html>
