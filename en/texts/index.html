@@ -58,7 +58,7 @@
             <nav class="nav">
                 <ul class="nav-links">
                     <li><a  href="../../en/bio">the painter</a></li>
-                    <li><a  href="../../en/artwork">her artwork </a></li>
+                   <li><a  href="../../en/artwork">her artwork </a></li>
                    
                     <li><a  class="active" href="../../en/texts">writings</a></li>
                     <li><a href=" ../../en/association">our association</a></li>
@@ -88,18 +88,48 @@
 
 <!--main container-->
 
+
+<div id="main_container" class="artwork textes">
+    <div class="container-fluid" style="background-color:#e5e5e5 ;">
+        <div class="artwork-header">
+            <div class="content">
+                <div class="quote_box">
+                    <q>
+                         I believe, dear Jano, that when we say a painting deepens, we must take this image literally.
+             You have dug a lot, and these dramatic impulses that have always driven and constructed your painting are now buried in a more secret humus.
+             You, who seem so fragile, what strength allows you to stir skies and earth until you immerse yourself again in this living original matter that we all seek, through various paths, to rediscover?
+                    </q>
+                    <div class="person">Jean Bazaine</div>
+                 </div>       
+            </div>
+            <div class="slider-wrapper">
+                <div class="slider-container">
+                <div class="slider-track">
+                    <div class="slide"><img onclick="openImageModal('../../assest/textes_section/IMG_8338.jpg')" loading="lazy" src="../../assest/textes_section/IMG_8338.jpg" alt="Image 1"></div>
+                    <div class="slide"><img onclick="openImageModal('../../assest/textes_section/P1090593.jpg')" loading="lazy" src="../../assest/textes_section/P1090593.jpg" alt="Image 2"></div>
+                    <div class="slide"><img onclick="openImageModal('../../assest/textes_section/P1110022.jpg')" loading="lazy" src="../../assest/textes_section/P1110022.jpg" alt="Image 3"></div>
+                    <div class="slide"><img onclick="openImageModal('../../assest/textes_section/P1130231copie.jpg')" loading="lazy" src="../../assest/textes_section/P1130231copie.jpg" alt="Image 4"></div>
+                </div>
+                <div class="controls">
+                    <button class="control prev">&#10094;</button>
+                    <button class="control next">&#10095;</button>
+                </div>
+                </div>
+                <div class="thumbnail-container">
+                    <div class="thumbnail" data-index="0"><img loading="lazy" src="../../assest/textes_section/IMG_8338.jpg" alt="Image 1"></div>
+                    <div class="thumbnail" data-index="1"><img loading="lazy" src="../../assest/textes_section/P1090593.jpg" alt="Image 2"></div>
+                    <div class="thumbnail" data-index="2"><img loading="lazy" src="../../assest/textes_section/P1110022.jpg" alt="Image 3"></div>
+                    <div class="thumbnail" data-index="3"><img loading="lazy" src="../../assest/textes_section/P1130231copie.jpg" alt="Image 4"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
 <div id="main_container" class="texts">
     <div class="container-fluid">
-    <div class="quote_box">
-       <q>
-            I believe, dear Jano, that when we say a painting deepens, we must take this image literally.
-You have dug a lot, and these dramatic impulses that have always driven and constructed your painting are now buried in a more secret humus.
-You, who seem so fragile, what strength allows you to stir skies and earth until you immerse yourself again in this living original matter that we all seek, through various paths, to rediscover?
-        
-       
-       </q>
-       <div class="person">Jean Bazaine</div>
-    </div>
+    
 
         <div class="links-list">
             <h2>Discover what they said about Jano</h2>
@@ -117,6 +147,23 @@ You, who seem so fragile, what strength allows you to stir skies and earth until
 </div>
 
 
+
+        
+<div   class="modal-section">
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+           <div class="image-content">
+            <img id="modalImage" src="" alt="Full-size Image">
+           </div>
+        </div>
+        <div class="controls">
+            <button onclick="zoomOut()">-</button>
+            <input type="range" id="zoomRange" min="0.1" max="10" step="0.2" value="1" oninput="zoomImage(this.value)">
+            <button  onclick="zoomIn()">+</button>
+        </div>
+    </div>
+</div>
 
 
 
@@ -151,5 +198,45 @@ You, who seem so fragile, what strength allows you to stir skies and earth until
 
 
     <script src="../../script.js"></script>
+    <script src="../../zoomimg.js"></script>
+    <script>
+        //slide wrapper for views of the studio
+document.querySelectorAll('.slider-wrapper').forEach((sliderWrapper) => {
+    const track = sliderWrapper.querySelector('.slider-track');
+    const slides = sliderWrapper.querySelectorAll('.slide');
+    const thumbnails = sliderWrapper.querySelectorAll('.thumbnail');
+    const prevButton = sliderWrapper.querySelector('.prev');
+    const nextButton = sliderWrapper.querySelector('.next');
+
+    let currentIndex = 0;
+
+    function updateSlider() {
+      const slideWidth = slides[0].getBoundingClientRect().width;
+      track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+      thumbnails.forEach((thumb, index) => {
+        thumb.classList.toggle('in', index === currentIndex);
+      });
+    }
+
+    function goToSlide(index) {
+    
+      if (index < 0) currentIndex = slides.length - 1;
+      else if (index >= slides.length) currentIndex = 0;
+      else currentIndex = index;
+      updateSlider();
+    }
+
+    prevButton.addEventListener('click', () => goToSlide(currentIndex - 1));
+    nextButton.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+    thumbnails.forEach((thumbnail, index) => {
+      thumbnail.addEventListener('click', () => goToSlide(index));
+    });
+
+    window.addEventListener('resize', updateSlider);
+    updateSlider();
+  });
+   
+</script>
 </body>
 </html>

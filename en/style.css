@@ -435,18 +435,18 @@ width: 100%;
 }
 
 /*############# text section ##############*/
-.texts .quote_box {
-    padding: 4px;
-    border-bottom: 1px solid #1e1e1e;
+.container-fluid .quote_box {
+    padding: 4px 0;
     color: #1e1e1e;
-    font-size: 16px;
+    font-size: 18px;
     font-style: italic;
 }
-.texts .quote_box .person {
+.container-fluid .quote_box .person {
 padding: 5px 0;
 text-align: right;
 font-weight: 600;
 }
+
 .texts .links-list h2{
 font-size: 20px;
 padding: 15px 0;
@@ -599,20 +599,23 @@ padding: 25px 0;
 
 
 /* ################## artwork  ####################*/
-.artwork .artwork-header{
+.artwork .artwork-header {
     display :flex;
-    width: 80%;
+    width: 90%;
     align-items: center;
     color: #222;
     margin: 50px auto 60px auto;
     background-color: #e5e5e5;
-    padding: 20px;
+    padding: 20px ;
 }
 .artwork .artwork-header .content {
     width: 60%;
     font-size: 30px;
 }
-
+.textes.artwork .artwork-header .content {
+    width: 50%;
+    font-size: 30px;
+}
 
 
 .gallery {
@@ -659,27 +662,8 @@ max-height: 300px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   }
   
-  .fullscreen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.9);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .fullscreen img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    cursor: pointer;
-  }
 @media  screen and (max-width: 1060px) {
-    .artwork .artwork-header{
+    .artwork .artwork-header,.textes.artwork .artwork-header{
         display :flex;
         flex-direction: column;
         width: 100%;
@@ -687,12 +671,12 @@ max-height: 300px;
         color: #222;
         margin: 80px auto 60px auto;
         background-color: #e5e5e5;
-        padding: 20px;
+        padding: 20px 0;
     }
-    .artwork .artwork-header .content {
-        width: 100%;
-        font-size: 23px;
-        margin: 20px 0;
+    .artwork .artwork-header .content,.textes .artwork .artwork-header .content {
+        width: 100% !important;
+        font-size: 19px !important;
+        margin: 20px 0 !important;
     }
     
 }
@@ -1017,7 +1001,8 @@ line-height: 1.4rem;
 
 
 /* ##################################### views of the studio section ##########################################*/
-.doc .slider-wrapper {
+ .slider-wrapper {
+    max-width: 100% !important;
     margin: 20px  auto 60px auto !important;
 }
 .slider-wrapper .slider-container {
@@ -1065,11 +1050,16 @@ line-height: 1.4rem;
 
   /*artwork edition*/
   .artwork .slider-wrapper .slide img{
-    max-width: 50%;
-    max-height: 100%;
-    border-radius: 10px; 
+    max-width: 50% !important;
+    max-height: auto !important;
+    border-radius: 10px !important; 
   }
-
+/*textes section*/
+.artwork.textes .slider-wrapper .slide img{
+    max-width: 100% !important;
+    max-height: auto !important;
+    border-radius: 10px !important; 
+  }
   .slider-wrapper .controls {
     position: absolute;
     top: 50%;
@@ -1158,6 +1148,14 @@ line-height: 1.4rem;
     width: auto !important;
     height: 100%;   
   }
+    /*artwork edition*/
+    .artwork.textes .slider-wrapper .slide img{
+        max-width: 100% !important;
+        max-height: 100% !important;
+        border-radius: 10px !important;
+        width: auto !important;
+        height: 100%;   
+      }
 }
 
 
