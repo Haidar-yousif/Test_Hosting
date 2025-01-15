@@ -515,6 +515,89 @@ padding: 15px 0;
 }
 /*########## our association #############*/
 
+
+/* Background container with animation */
+.association .background-container {
+    width: 100%;
+    height: 80vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background 1s ease-in-out;
+  }
+  
+  /* Content styling */
+  .association .content {
+    color: black;
+    text-align: center;
+    padding: 40px;
+    background: #e5e5e5bb; /* Dark overlay for better readability */
+    border-radius: 15px;
+    max-width: 90%;
+    width: 800px;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 6px 20px #e5e5e522;
+  }
+  
+  /* Title styling */
+  .association  .content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  /* Paragraph styling */
+  .content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+  }
+  
+  /* Responsive styling */
+  @media (max-width: 768px) {
+    .association  .content {
+      padding: 20px;
+    }
+  
+    .association  .content h1 {
+      font-size: 2rem;
+    }
+  
+    .association  .content p {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .association  .content {
+      padding: 15px;
+    }
+  
+    .association  .content h1 {
+      font-size: 1.5rem;
+    }
+  
+    .association   .content p {
+      font-size: 0.9rem;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
 .association .section1{
     background-color:#e5e5e5;
 }

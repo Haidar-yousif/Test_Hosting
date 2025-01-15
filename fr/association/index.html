@@ -82,19 +82,32 @@
 
 
 <!--main container-->
+
+<!--main container-->
 <div class="association">
     <div id="main_container" class="section1">
         <div class="container-fluid">
            <div class="main-container">
-            <div class="img-container">
+            <!-- <div class="img-container">
                 <div class="img-cover">
-                    <img src="../../global-images/gno2yxza.png" alt="title">
+                    <img src="../../assest/textes_section/P1090593.jpg" alt="title">
                 </div>
                 <p class="img-title">
-                    Simon Hantaï handling his archives at his home in the Rue Georges Braque, c. 2006. © Photo Antonio Semeraro.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In, quidem.            
                 </p>
-            </div>
-            <div class="description">
+            </div> -->
+            <div class="background-container">
+                <div class="content">
+                    <p>
+                        Constituée le 9 juillet 2024, l’association « Les amis de Jano Xhenseval » a pour objet de mettre en valeur, de préserver et de défendre l’œuvre artistique de Jano Xhenseval.
+                    </p>
+                      <p>
+                        L’association est dépositaire des droits moraux sur cet œuvre et possède une partie des travaux de l’artiste. Elle s’attache à recenser l’ensemble de ses réalisations, à faire connaître, apprécier et aimer son œuvre, et à susciter, accompagner et promouvoir des événements en cohérence avec ses préoccupations artistiques. 
+                    </p>
+                </div>
+              </div>
+              
+            <!-- <div class="description">
                 <p>
                     The <span> Archives Simon Hantaï,</span> created in 2013, is an endowment fund aiming to ensure the conservation of Simon Hantaï's work and bring it to the public eye through various initiatives such as exhibitions, publications and conferences, loans of works and the catalogue raisonné.
                 </p>
@@ -102,16 +115,16 @@
                     The <span>Archives Simon Hantaï </span>administers the artistic property attached to the work of Simon Hantaï and issues certificates of authenticity. They preserve the archives, the library, the photo library as well as a significant body of the painter's work.
                 </p>
                 <p>
-                    If you would like further information, or wish to inform us of the existence of documentation and archives relating to Simon Hantaï's work, or of any errors or omissions on this website, please use the "<a href="../../fr/contact" title="contact us">contact</a> " form.
+                    If you would like further information, or wish to inform us of the existence of documentation and archives relating to Simon Hantaï's work, or of any errors or omissions on this website, please use the "<a href="../../en/contact" title="contact us">contact</a> " form.
                 </p>
-            </div>
+            </div> -->
            </div>
                 
        </div>
     </div>
-    <div id="main_container" class="section2">
+    <!-- <div id="main_container" class="section2">
         <div class="container-fluid">
-            <section>
+             <section>
                 <h2>Catalogue raisonné</h2>
                 <p>
                     The <span> Archives Simon Hantaï</span> are presently researching Hantaï's paintings in preparation for a catalogue raisonné. If you are a current or previous owner of one or more of Hantaï's paintings, please provide information on the artwork in your collection by clicking here. All information provided will remain strictly confidential.
@@ -121,12 +134,13 @@
                 <h2>Certificates of Authenticity</h2>
                 <p>
                     Only the<span> Archives Simon Hantaï </span>can issue certificates of authenticity.<br>
-                    To obtain such a certificate please <a href="../../fr/contact" title="contact us">contact us</a>.
+                    To obtain such a certificate please <a href="../../en/contact" title="contact us">contact us</a>.
                 </p>
-            </section>
+            </section> 
        </div>
-    </div>
+    </div> -->
 </div>
+
 
 
 
@@ -139,9 +153,9 @@
        <div class="row">
         <div class="quote">
             <p>
-              <strong><q>Pour que le fauteur d'une tâche devienne l'auteur d'un signe, il faut qu'il y soit autorisé par une bienveillance.</q></strong>
+              <strong><q>Je crois que la vie n’est belle que d’être rendue légère. Il y a quelque chose de la calandrelle qui se promène dans l’atelier et m’empêche de céder à la tentation de la lourdeur, du découragement… Quelque chose de futile pour le temps, d’important pour l’âme.</q></strong>
             </p>
-            <p class="quote-author">- Paul Beauchamp</p>
+         
           </div>
        </div>
         <div class="row">
@@ -165,5 +179,31 @@
 
 
     <script src="../../script.js"></script>
+    <script>
+        // Array of background images
+const images = [
+'../../assest/artwork_section_compress/img42.jpg', // Replace with your actual image paths
+'../../assest/artwork_section_compress/img43.jpg',
+'../../assest/artwork_section_compress/img44.jpg',
+'../../assest/artwork_section_compress/img46.jpg'
+];
+
+let currentIndex = 0; // Track the current image index
+const container = document.querySelector('.background-container');
+
+// Function to change the background image
+function changeBackground() {
+container.style.backgroundImage = `url(${images[currentIndex]})`;
+currentIndex = (currentIndex + 1) % images.length; // Loop back to the first image
+}
+
+// Set an interval to change the background every 5 seconds
+setInterval(changeBackground, 5000);
+
+// Initial background setup
+changeBackground();
+
+          
+    </script>
 </body>
 </html>

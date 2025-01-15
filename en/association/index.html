@@ -89,15 +89,26 @@
     <div id="main_container" class="section1">
         <div class="container-fluid">
            <div class="main-container">
-            <div class="img-container">
+            <!-- <div class="img-container">
                 <div class="img-cover">
-                    <img src="../../global-images/gno2yxza.png" alt="title">
+                    <img src="../../assest/textes_section/P1090593.jpg" alt="title">
                 </div>
                 <p class="img-title">
-                    Simon Hantaï handling his archives at his home in the Rue Georges Braque, c. 2006. © Photo Antonio Semeraro.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In, quidem.            
                 </p>
-            </div>
-            <div class="description">
+            </div> -->
+            <div class="background-container">
+                <div class="content">
+                    <p>
+                        Established on July 9, 2024, the association « Friends of Jano Xhenseval » is dedicated to promoting, preserving, and defending the artistic legacy of Jano Xhenseval.
+                      </p>
+                      <p>
+                        As the custodian of moral rights to the artist's works and owner of some of his creations, the association strives to catalog his achievements, inspire appreciation and admiration for his art, and support events aligned with his artistic vision.
+                      </p>
+                </div>
+              </div>
+              
+            <!-- <div class="description">
                 <p>
                     The <span> Archives Simon Hantaï,</span> created in 2013, is an endowment fund aiming to ensure the conservation of Simon Hantaï's work and bring it to the public eye through various initiatives such as exhibitions, publications and conferences, loans of works and the catalogue raisonné.
                 </p>
@@ -107,14 +118,14 @@
                 <p>
                     If you would like further information, or wish to inform us of the existence of documentation and archives relating to Simon Hantaï's work, or of any errors or omissions on this website, please use the "<a href="../../en/contact" title="contact us">contact</a> " form.
                 </p>
-            </div>
+            </div> -->
            </div>
                 
        </div>
     </div>
-    <div id="main_container" class="section2">
+    <!-- <div id="main_container" class="section2">
         <div class="container-fluid">
-            <section>
+             <section>
                 <h2>Catalogue raisonné</h2>
                 <p>
                     The <span> Archives Simon Hantaï</span> are presently researching Hantaï's paintings in preparation for a catalogue raisonné. If you are a current or previous owner of one or more of Hantaï's paintings, please provide information on the artwork in your collection by clicking here. All information provided will remain strictly confidential.
@@ -126,9 +137,9 @@
                     Only the<span> Archives Simon Hantaï </span>can issue certificates of authenticity.<br>
                     To obtain such a certificate please <a href="../../en/contact" title="contact us">contact us</a>.
                 </p>
-            </section>
+            </section> 
        </div>
-    </div>
+    </div> -->
 </div>
 
 
@@ -144,9 +155,9 @@
        <div class="row">
         <div class="quote">
             <p>
-              <strong><q> For the stainer to become the author of a sign, he must be authorized to do so by benevolence .</q></strong>
+              <strong><q> I believe life is only beautiful when it is made light. There is something of the skylark that roams the studio, keeping me from yielding to the temptation of heaviness, discouragement… Something trivial for time, yet important for the soul.</q></strong>
             </p>
-            <p class="quote-author">- Paul Beauchamp</p>
+         
           </div>
        </div>
         <div class="row">
@@ -167,5 +178,31 @@
 
 
     <script src="../../script.js"></script>
+    <script>
+        // Array of background images
+const images = [
+'../../assest/artwork_section_compress/img42.jpg', // Replace with your actual image paths
+'../../assest/artwork_section_compress/img43.jpg',
+'../../assest/artwork_section_compress/img44.jpg',
+'../../assest/artwork_section_compress/img46.jpg'
+];
+
+let currentIndex = 0; // Track the current image index
+const container = document.querySelector('.background-container');
+
+// Function to change the background image
+function changeBackground() {
+container.style.backgroundImage = `url(${images[currentIndex]})`;
+currentIndex = (currentIndex + 1) % images.length; // Loop back to the first image
+}
+
+// Set an interval to change the background every 5 seconds
+setInterval(changeBackground, 5000);
+
+// Initial background setup
+changeBackground();
+
+          
+    </script>
 </body>
 </html>
