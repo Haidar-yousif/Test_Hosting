@@ -43,6 +43,47 @@
         <!-- Feuille de Style Externe -->
         <link rel="stylesheet" href="./en/style.css">
         <!-- JavaScript Externe -->
+        <style>
+   
+   
+            .bio_head .side-menu ul{
+                background-color: #ffffffaa !important;
+                width: max-content !important;
+                transform: translateY(40px);
+            }
+         
+            /* Background image block */
+            .bio_head_bg {
+                padding-top: 80px !important;
+                margin-top: -80px;
+                flex: 1;
+                height: 100vh; /* Ensure it fills the full height of the viewport */
+                background-size: cover;
+                background-position: center;
+                animation: backgroundImageChange 20s infinite;
+                margin-left: 0px; /* Create space for the fixed sidebar */
+            }
+            
+            /* Background image animation */
+            @keyframes backgroundImageChange {
+                0% {
+                    background-image: url('../../assest/documents_section/02G - atelier/P1070472.JPG');
+                    
+                }
+                25% {
+                    background-image: url('../../assest/documents_section/jardin/IMG_8629.jpg');
+                }
+                50% {
+                    background-image: url('../../assest/documents_section/02G - atelier/P1110971.JPG');
+                }
+                75% {
+                    background-image: url('../../assest/artwork_section_compress/img46.jpg');
+                    
+                }
+                100% {
+                    background-image: url('../../assest/textes_section/IMG_8338.jpg');
+                }
+            }</style>
     </head>
     
 <body>
@@ -93,7 +134,7 @@
   <div id="main_container" class="bio doc bio_head">
     <div class="top-section" >
         <div class="container-fluid">
-            <div class="row">
+            <div class="row bio_head_bg">
                 <div class="side-menu">
                     <div class="navbar_inner">
                         <ul class="list_unstyled">
@@ -104,16 +145,20 @@
                     </div>
                 </div>     
                  
-                <div class="bio_head_img">
+                <!-- <div class="bio_head_img">
                     <img src="./assest/documents_section/Jano_devant_la_gare.jpg" alt="2016-08-14_Jano devant la gare de Liège">
                 </div>
                 <div class="bio_head_img_text">
                     <p>Jano en 2016 à Liège, devant la gare construite par Santiago Calatrava, un architecte qu'elle admirait.</p>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
 </div>
+
+
+
+
   <div id="main_container" class="bio doc bio_body">
     <div class="top-section" style="background-color: white;">
         <div class="container-fluid">
