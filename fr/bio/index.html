@@ -84,7 +84,23 @@
                 100% {
                     background-image: url('../../assest/textes_section/IMG_8338.jpg');
                 }
-            }</style>
+            }
+            @media screen and (max-width:550px){
+                /* Background image block */
+           .bio_head_bg {
+               padding-top: 80px !important;
+               margin-top:-80px;
+               flex: 1;
+               height: 100vh; /* Ensure it fills the full height of the viewport */
+               background-size: cover;
+               background-position: center;
+               background-size:contain;
+               background-repeat: no-repeat;
+               animation: backgroundImageChange 20s infinite;
+               margin-left: 0px; /* Create space for the fixed sidebar */
+           }
+             }
+        </style>
     </head>
     
 <body>
